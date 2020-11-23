@@ -46,17 +46,82 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Architecture\Controller.cs" />
+    <Compile Include="Core\Architecture\Model\Administrator.cs" />
+    <Compile Include="Core\Architecture\Model\Cause.cs" />
+    <Compile Include="Core\Architecture\Model\Confirmation.cs" />
+    <Compile Include="Core\Architecture\Model\DonatedItem.cs" />
+    <Compile Include="Core\Architecture\Model\Donation.cs" />
+    <Compile Include="Core\Architecture\Model\Donor.cs" />
+    <Compile Include="Core\Architecture\Model\Item.cs" />
+    <Compile Include="Core\Architecture\Model\ItemCategory.cs" />
+    <Compile Include="Core\Architecture\Model\ItemUnit.cs" />
+    <Compile Include="Core\Architecture\Model\Organization.cs" />
+    <Compile Include="Core\Architecture\Model\City.cs" />
+    <Compile Include="Core\Architecture\Model\Rating.cs" />
+    <Compile Include="Core\Architecture\Model\State.cs" />
     <Compile Include="Core\Architecture\View.cs" />
-    <Compile Include="Core\BaseForm.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Feature\Donations\DonationsController.cs" />
+    <Compile Include="Feature\Donations\DonationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Feature\Donations\DonationsForm.Designer.cs">
+      <DependentUpon>DonationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Donation\DonationController.cs" />
+    <Compile Include="Feature\Donation\DonationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Feature\Donation\DonationForm.Designer.cs">
+      <DependentUpon>DonationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Rating\RatingController.cs" />
+    <Compile Include="Feature\Rating\RatingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Feature\Rating\RatingForm.Designer.cs">
+      <DependentUpon>RatingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Login\LoginController.cs" />
+    <Compile Include="Feature\Login\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Feature\Login\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Menu\MenuController.cs" />
+    <Compile Include="Feature\Menu\MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Feature\Menu\MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Profile\ProfileController.cs" />
+    <Compile Include="Feature\Profile\ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Feature\Profile\ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Feature\Donations\DonationsFOrm.resx">
+      <DependentUpon>DonationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Feature\Donation\DonationForm.resx">
+      <DependentUpon>DonationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Feature\Rating\RatingForm.resx">
+      <DependentUpon>RatingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Feature\Login\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Feature\Menu\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Feature\Profile\ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,8 +144,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Feature\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

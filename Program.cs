@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Solidare.Feature.Login;
+using System;
 using System.Windows.Forms;
 
 namespace Solidare
@@ -16,7 +14,7 @@ namespace Solidare
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LoginForm());
         }
     }
 }
