@@ -8,14 +8,14 @@
 
         public string Password { get; private set; }
 
-        public Organization Organization { get; private set; }
+        public int OrganizationID { get; private set; }
 
-        public Administrator(int id, string username, string password, Organization organization)
+        public Administrator(int id, string username, string password, int organizationID)
         {
             ID = id;
             Username = username;
             Password = password;
-            Organization = organization;
+            OrganizationID = organizationID;
         }
     }
 }
