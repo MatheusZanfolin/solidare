@@ -13,7 +13,6 @@ namespace Solidare.Feature.Login.Operations
     class SignInParameters : Parameters
     {
         private string User { get; }
-
         private string Password { get; }
 
         public SignInParameters(string user, string password)
@@ -31,7 +30,7 @@ namespace Solidare.Feature.Login.Operations
 
     class SignInMapper : Mapper<Administrator>
     {
-        public Administrator Map(SqlDataReader reader)
+        public Administrator Map(Dictionary<string, object> reader)
         {
             return new Administrator
             (

@@ -68,6 +68,8 @@
     <Compile Include="Feature\Donations\DonationsForm.Designer.cs">
       <DependentUpon>DonationsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Feature\Donations\Operations\PendingDonations.cs" />
+    <Compile Include="Feature\Donations\Operations\PendingDonationsDonors.cs" />
     <Compile Include="Feature\Donation\DonationController.cs" />
     <Compile Include="Feature\Donation\DonationForm.cs">
       <SubType>Form</SubType>
@@ -75,6 +77,21 @@
     <Compile Include="Feature\Donation\DonationForm.Designer.cs">
       <DependentUpon>DonationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Feature\Donation\Operations\DonationConfirmation.cs" />
+    <Compile Include="Feature\Donation\Operations\DonationItems.cs" />
+    <Compile Include="Feature\Donation\Operations\ItemCategoryDetails.cs" />
+    <Compile Include="Feature\Donation\Operations\UnitDetails.cs" />
+    <Compile Include="Feature\Donation\Operations\ItemDetails.cs" />
+    <Compile Include="Feature\Login\Operations\SignIn.cs" />
+    <Compile Include="Feature\Profile\Operations\CitiesFromStateDetails.cs" />
+    <Compile Include="Feature\Profile\Operations\CityDetails.cs" />
+    <Compile Include="Feature\Profile\Operations\OrganizationCausesDetails.cs" />
+    <Compile Include="Feature\Profile\Operations\OrganizationCausesReset.cs" />
+    <Compile Include="Feature\Profile\Operations\OrganizationCausesSaving.cs" />
+    <Compile Include="Feature\Profile\Operations\OrganizationDetails.cs" />
+    <Compile Include="Feature\Profile\Operations\OrganizationSaving.cs" />
+    <Compile Include="Feature\Profile\Operations\StateDetails.cs" />
+    <Compile Include="Feature\Rating\Operations\DonatedItemRating.cs" />
     <Compile Include="Feature\Rating\RatingController.cs" />
     <Compile Include="Feature\Rating\RatingForm.cs">
       <SubType>Form</SubType>

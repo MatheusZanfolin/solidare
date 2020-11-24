@@ -6,19 +6,16 @@
 
         public string Name { get; private set; }
 
-        public string Image { get; private set; }
+        public int CategoryID { get; private set; }
 
-        public ItemCategory Category { get; private set; }
+        public int UnitID { get; private set; }
 
-        public ItemUnit Unit { get; private set; }
-
-        public Item(int id, string name, string image, ItemCategory category, ItemUnit unit)
+        public Item(int id, string name, int categoryID, int unitID)
         {
             ID = id;
             Name = name;
-            Image = image;
-            Category = category;
-            Unit = unit;
+            CategoryID = categoryID;
+            UnitID = unitID;
         }
     }
 }

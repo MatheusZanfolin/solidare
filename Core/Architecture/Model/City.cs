@@ -6,13 +6,13 @@
 
         public string Name { get; private set; }
 
-        public State State { get; private set; }
+        public int StateID { get; private set; }
 
-        public City(int id, string name, State state)
+        public City(int id, string name, int stateID)
         {
             ID = id;
             Name = name;
-            State = state;
+            StateID = stateID;
         }
     }
 }

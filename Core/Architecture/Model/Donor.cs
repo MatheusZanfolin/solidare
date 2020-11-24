@@ -16,9 +16,9 @@
 
         public string Username { get; private set; }
 
-        public City City { get; private set; }
+        public int CityID { get; private set; }
 
-        public Donor(int id, string name, string email, string cpf, string phone, string cellphone, string username, City city)
+        public Donor(int id, string name, string email, string cpf, string phone, string cellphone, string username, int cityID)
         {
             ID = id;
             Name = name;
@@ -27,7 +27,7 @@
             Phone = phone;
             Cellphone = cellphone;
             Username = username;
-            City = city;
+            CityID = cityID;
         }
     }
 }

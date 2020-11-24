@@ -23,9 +23,9 @@ namespace Solidare.Core.Architecture.Model
 
         public string Logo { get; private set; }
 
-        public List<Cause> Causes { get; private set; }
+        public int CityID { get; private set; }
 
-        public Organization(int id, string name, string email, string phone, string address, string cnpj, string website, string app, string logo, List<Cause> causes)
+        public Organization(int id, string name, string email, string phone, string address, string cnpj, string website, string app, string logo, int cityID)
         {
             ID = id;
             Name = name;
@@ -36,7 +36,7 @@ namespace Solidare.Core.Architecture.Model
             Website = website;
             App = app;
             Logo = logo;
-            Causes = causes;
+            CityID = cityID;
         }
 
     }

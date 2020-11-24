@@ -6,13 +6,10 @@
 
         public string Name { get; private set; }
 
-        public string DefaultImage { get; private set; }
-
-        public ItemCategory(int id, string name, string defaultImage)
+        public ItemCategory(int id, string name)
         {
             ID = id;
             Name = name;
-            DefaultImage = defaultImage;
         }
     }
 }

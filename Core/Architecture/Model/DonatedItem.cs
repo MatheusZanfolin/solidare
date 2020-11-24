@@ -2,23 +2,20 @@
 {
     public class DonatedItem
     {
-        public string ID { get; private set; }
+        public int ID { get; private set; }
 
-        public Item Item { get; private set; }
+        public int ItemID { get; private set; }
 
         public int Quantity { get; private set; }
 
-        public Donation Donation { get; private set; }
+        public int DonationID { get; private set; }
 
-        public Rating Rating { get; private set; }
-
-        public DonatedItem(string id, Item item, int quantity, Donation donation, Rating rating)
+        public DonatedItem(int id, int itemID, int quantity, int donationID)
         {
             ID = id;
-            Item = item;
+            ItemID = itemID;
             Quantity = quantity;
-            Donation = donation;
-            Rating = rating;
+            DonationID = donationID;
         }
     }
 }

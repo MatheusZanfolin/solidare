@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Solidare.Core
 {
@@ -19,7 +20,7 @@ namespace Solidare.Core
                 {
                     while (reader.Read())
                     {
-                        result.Add(mapper.Map(reader));
+                        result.Add(mapper.Map(Enumerable.Range(0, reader.FieldCount).ToDictionary(reader.GetName, reader.GetValue)));
                     }
                 }
             });
@@ -78,7 +79,7 @@ namespace Solidare.Core
 
         public interface Mapper<D>
         {
-            D Map(SqlDataReader reader);
+            D Map(Dictionary<string, object> reader);
         }
     }
 }
