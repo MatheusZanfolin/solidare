@@ -75,6 +75,7 @@
             this.BtnSignIn.TabIndex = 4;
             this.BtnSignIn.Text = "Entrar";
             this.BtnSignIn.UseVisualStyleBackColor = true;
+            this.BtnSignIn.Click += new System.EventHandler(this.BtnSignIn_Click);
             // 
             // LoginForm
             // 
