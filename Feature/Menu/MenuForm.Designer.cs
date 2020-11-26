@@ -41,6 +41,7 @@
             this.BtnProfile.TabIndex = 0;
             this.BtnProfile.Text = "Editar perfil da ONG";
             this.BtnProfile.UseVisualStyleBackColor = true;
+            this.BtnProfile.Click += new System.EventHandler(this.BtnProfile_Click);
             // 
             // BtnDonations
             // 
@@ -50,6 +51,7 @@
             this.BtnDonations.TabIndex = 1;
             this.BtnDonations.Text = "Avaliar doações pendentes";
             this.BtnDonations.UseVisualStyleBackColor = true;
+            this.BtnDonations.Click += new System.EventHandler(this.BtnDonations_Click);
             // 
             // BtnExit
             // 
@@ -59,6 +61,7 @@
             this.BtnExit.TabIndex = 2;
             this.BtnExit.Text = "Sair";
             this.BtnExit.UseVisualStyleBackColor = true;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // MenuForm
             // 

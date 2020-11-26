@@ -1,6 +1,5 @@
 ﻿using Solidare.Core.Architecture.Model;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using static Solidare.Core.Database;
 
 namespace Solidare.Feature.Profile.Operations

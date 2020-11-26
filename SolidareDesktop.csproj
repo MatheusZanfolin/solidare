@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Architecture\Controller.cs" />
     <Compile Include="Core\Architecture\Model\Administrator.cs" />
     <Compile Include="Core\Architecture\Model\Cause.cs" />
     <Compile Include="Core\Architecture\Model\Confirmation.cs" />
@@ -59,8 +60,15 @@
     <Compile Include="Core\Architecture\Model\City.cs" />
     <Compile Include="Core\Architecture\Model\Rating.cs" />
     <Compile Include="Core\Architecture\Model\State.cs" />
-    <Compile Include="Core\Architecture\View.cs" />
     <Compile Include="Core\Database.cs" />
+    <Compile Include="Feature\Causes\CausesController.cs" />
+    <Compile Include="Feature\Causes\CausesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Feature\Causes\CausesForm.Designer.cs">
+      <DependentUpon>CausesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Causes\Operations\CausesDetails.cs" />
     <Compile Include="Feature\Donations\DonationsController.cs" />
     <Compile Include="Feature\Donations\DonationsForm.cs">
       <SubType>Form</SubType>
@@ -79,6 +87,7 @@
     </Compile>
     <Compile Include="Feature\Donation\Operations\DonationConfirmation.cs" />
     <Compile Include="Feature\Donation\Operations\DonationItems.cs" />
+    <Compile Include="Feature\Donation\Operations\DonationRatings.cs" />
     <Compile Include="Feature\Donation\Operations\ItemCategoryDetails.cs" />
     <Compile Include="Feature\Donation\Operations\UnitDetails.cs" />
     <Compile Include="Feature\Donation\Operations\ItemDetails.cs" />
@@ -90,7 +99,8 @@
     <Compile Include="Feature\Profile\Operations\OrganizationCausesSaving.cs" />
     <Compile Include="Feature\Profile\Operations\OrganizationDetails.cs" />
     <Compile Include="Feature\Profile\Operations\OrganizationSaving.cs" />
-    <Compile Include="Feature\Profile\Operations\StateDetails.cs" />
+    <Compile Include="Feature\Profile\Operations\StateFromCityDetails.cs" />
+    <Compile Include="Feature\Profile\Operations\StatesDetails.cs" />
     <Compile Include="Feature\Rating\Operations\DonatedItemRating.cs" />
     <Compile Include="Feature\Rating\RatingController.cs" />
     <Compile Include="Feature\Rating\RatingForm.cs">
@@ -122,6 +132,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Feature\Causes\CausesForm.resx">
+      <DependentUpon>CausesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Feature\Donations\DonationsFOrm.resx">
       <DependentUpon>DonationsForm.cs</DependentUpon>
     </EmbeddedResource>

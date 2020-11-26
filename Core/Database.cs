@@ -7,20 +7,20 @@ namespace Solidare.Core
 {
     public class Database
     {
-        private readonly SqlConnection connection = new SqlConnection(Properties.Resources.ConnectionString);
+        private static readonly SqlConnection connection = new SqlConnection(Properties.Resources.ConnectionString);
 
-        public List<D> Get<D>(Operation get, Mapper<D> mapper, Parameters parameters = null)
+        public static D Get<D>(Operation get, Mapper<D> mapper, Parameters parameters = null)
         {
-            var result = new List<D>();
+            D result = default(D);
 
             PerformAtDatabase(() => {
                 var command = GetCommand(get, parameters);
                 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
-                        result.Add(mapper.Map(Enumerable.Range(0, reader.FieldCount).ToDictionary(reader.GetName, reader.GetValue)));
+                        result = mapper.Map(Enumerable.Range(0, reader.FieldCount).ToDictionary(reader.GetName, reader.GetValue));
                     }
                 }
             });
@@ -28,22 +28,31 @@ namespace Solidare.Core
             return result;
         }
 
-        public void Insert(Operation insert)
+        public static List<D> GetAll<D>(Operation get, Mapper<D> mapper, Parameters parameters = null)
         {
-            PerformAtDatabase(() => { GetCommand(insert).ExecuteNonQuery(); });
+            List<D> result = new List<D>();
+
+            PerformAtDatabase(() => {
+                var command = GetCommand(get, parameters);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        result.Add(mapper.Map(Enumerable.Range(0, reader.FieldCount).ToDictionary(reader.GetName, reader.GetValue)));
+                    }
+                }
+            });
+
+            return result;
         }
 
-        public void Update(Operation update, Parameters parameters)
+        public static void Update(Operation update, Parameters parameters)
         {
             PerformAtDatabase(() => { GetCommand(update, parameters).ExecuteNonQuery(); });
         }
 
-        public void Delete(Operation update, Parameters parameters)
-        {
-            PerformAtDatabase(() => { GetCommand(update, parameters).ExecuteNonQuery(); });
-        }
-
-        private void PerformAtDatabase(Action action)
+        private static void PerformAtDatabase(Action action)
         {
             connection.Open();
 
@@ -52,7 +61,7 @@ namespace Solidare.Core
             connection.Close();
         }
 
-        private SqlCommand GetCommand(Operation operation, Parameters parameters = null)
+        private static SqlCommand GetCommand(Operation operation, Parameters parameters = null)
         {
             var command = new SqlCommand(operation.Query, connection);
 

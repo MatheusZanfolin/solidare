@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CmbGrade = new System.Windows.Forms.ComboBox();
             this.BtnConfirmRating = new System.Windows.Forms.Button();
             this.LblItemName = new System.Windows.Forms.Label();
             this.LblItemQuantity = new System.Windows.Forms.Label();
@@ -64,22 +64,24 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Avaliação";
             // 
-            // comboBox1
+            // CmbGrade
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(86, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(186, 21);
-            this.comboBox1.TabIndex = 3;
+            this.CmbGrade.FormattingEnabled = true;
+            this.CmbGrade.Location = new System.Drawing.Point(86, 90);
+            this.CmbGrade.Name = "CmbGrade";
+            this.CmbGrade.Size = new System.Drawing.Size(148, 21);
+            this.CmbGrade.TabIndex = 3;
+            this.CmbGrade.SelectedIndexChanged += new System.EventHandler(this.CmbGrade_SelectedIndexChanged);
             // 
             // BtnConfirmRating
             // 
             this.BtnConfirmRating.Location = new System.Drawing.Point(15, 131);
             this.BtnConfirmRating.Name = "BtnConfirmRating";
-            this.BtnConfirmRating.Size = new System.Drawing.Size(257, 23);
+            this.BtnConfirmRating.Size = new System.Drawing.Size(219, 23);
             this.BtnConfirmRating.TabIndex = 4;
             this.BtnConfirmRating.Text = "Confirmar avaliação";
             this.BtnConfirmRating.UseVisualStyleBackColor = true;
+            this.BtnConfirmRating.Click += new System.EventHandler(this.BtnConfirmRating_Click);
             // 
             // LblItemName
             // 
@@ -99,19 +101,19 @@
             this.LblItemQuantity.TabIndex = 6;
             this.LblItemQuantity.Text = "Item doado";
             // 
-            // DonatedItemForm
+            // RatingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 167);
+            this.ClientSize = new System.Drawing.Size(246, 167);
             this.Controls.Add(this.LblItemQuantity);
             this.Controls.Add(this.LblItemName);
             this.Controls.Add(this.BtnConfirmRating);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CmbGrade);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "DonatedItemForm";
+            this.Name = "RatingForm";
             this.Text = "Solidare - Avaliação";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,7 +125,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CmbGrade;
         private System.Windows.Forms.Button BtnConfirmRating;
         private System.Windows.Forms.Label LblItemName;
         private System.Windows.Forms.Label LblItemQuantity;

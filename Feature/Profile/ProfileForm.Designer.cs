@@ -48,6 +48,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.CmbState = new System.Windows.Forms.ComboBox();
             this.CmbCity = new System.Windows.Forms.ComboBox();
+            this.TxtCNPJ = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -155,15 +157,16 @@
             // TxtCausesList
             // 
             this.TxtCausesList.Enabled = false;
-            this.TxtCausesList.Location = new System.Drawing.Point(92, 173);
+            this.TxtCausesList.Location = new System.Drawing.Point(92, 199);
             this.TxtCausesList.Name = "TxtCausesList";
             this.TxtCausesList.Size = new System.Drawing.Size(224, 20);
             this.TxtCausesList.TabIndex = 13;
+            this.TxtCausesList.Click += new System.EventHandler(this.TxtCausesList_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 176);
+            this.label7.Location = new System.Drawing.Point(12, 202);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 12;
@@ -171,26 +174,28 @@
             // 
             // BtnEditSave
             // 
-            this.BtnEditSave.Location = new System.Drawing.Point(15, 265);
+            this.BtnEditSave.Location = new System.Drawing.Point(15, 289);
             this.BtnEditSave.Name = "BtnEditSave";
             this.BtnEditSave.Size = new System.Drawing.Size(146, 23);
             this.BtnEditSave.TabIndex = 14;
             this.BtnEditSave.Text = "Editar";
             this.BtnEditSave.UseVisualStyleBackColor = true;
+            this.BtnEditSave.Click += new System.EventHandler(this.BtnEditSave_Click);
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(167, 265);
+            this.BtnCancel.Location = new System.Drawing.Point(167, 289);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(149, 23);
             this.BtnCancel.TabIndex = 15;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 228);
+            this.label8.Location = new System.Drawing.Point(12, 254);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 16;
@@ -199,7 +204,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 202);
+            this.label9.Location = new System.Drawing.Point(12, 228);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 18;
@@ -207,25 +212,50 @@
             // 
             // CmbState
             // 
+            this.CmbState.DisplayMember = "Text";
             this.CmbState.FormattingEnabled = true;
-            this.CmbState.Location = new System.Drawing.Point(92, 199);
+            this.CmbState.Location = new System.Drawing.Point(92, 225);
             this.CmbState.Name = "CmbState";
             this.CmbState.Size = new System.Drawing.Size(224, 21);
             this.CmbState.TabIndex = 19;
+            this.CmbState.ValueMember = "Value";
+            this.CmbState.SelectedIndexChanged += new System.EventHandler(this.CmbState_SelectedIndexChanged);
             // 
             // CmbCity
             // 
+            this.CmbCity.DisplayMember = "Text";
             this.CmbCity.FormattingEnabled = true;
-            this.CmbCity.Location = new System.Drawing.Point(92, 225);
+            this.CmbCity.Location = new System.Drawing.Point(92, 251);
             this.CmbCity.Name = "CmbCity";
             this.CmbCity.Size = new System.Drawing.Size(224, 21);
             this.CmbCity.TabIndex = 20;
+            this.CmbCity.ValueMember = "Value";
+            this.CmbCity.SelectedIndexChanged += new System.EventHandler(this.CmbCity_SelectedIndexChanged);
+            // 
+            // TxtCNPJ
+            // 
+            this.TxtCNPJ.Enabled = false;
+            this.TxtCNPJ.Location = new System.Drawing.Point(92, 173);
+            this.TxtCNPJ.Name = "TxtCNPJ";
+            this.TxtCNPJ.Size = new System.Drawing.Size(224, 20);
+            this.TxtCNPJ.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 176);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "CNPJ";
             // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 300);
+            this.ClientSize = new System.Drawing.Size(336, 324);
+            this.Controls.Add(this.TxtCNPJ);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.CmbCity);
             this.Controls.Add(this.CmbState);
             this.Controls.Add(this.label9);
@@ -275,5 +305,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox CmbState;
         private System.Windows.Forms.ComboBox CmbCity;
+        private System.Windows.Forms.TextBox TxtCNPJ;
+        private System.Windows.Forms.Label label10;
     }
 }

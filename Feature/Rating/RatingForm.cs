@@ -1,20 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Solidare.Core.Architecture.Model;
+using Solidare.Feature.Donation;
 
 namespace Solidare.Feature.Item
 {
     public partial class RatingForm : Form
     {
-        public RatingForm()
+        private RatingController controller;
+
+        private DonatedItem donatedItem;
+
+        private DonationForm parent;
+
+        public RatingForm(DonationForm donation, Administrator loggedUser, DonatedItem donatedItem)
         {
-            InitializeComponent();
+            this.donatedItem = donatedItem;
+
+            parent = donation;
+            controller = new RatingController(this, loggedUser, donatedItem);
+
+            controller.OnScreenCreated();
+        }
+
+        private void CmbGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controller.OnGradeChanged(CmbGrade.SelectedText);
+        }
+
+        private void BtnConfirmRating_Click(object sender, EventArgs e)
+        {
+            controller.OnConfirmButtonClicked();
+        }
+
+        internal void ShowItemDetails(string name, string quantity)
+        {
+            LblItemName.Text = Name;
+            LblItemQuantity.Text = quantity;
+
+            for (int grade = 0; grade <= 10; grade++)
+            {
+                CmbGrade.Items.Add(grade.ToString());
+            }
+        }
+
+        internal void ShowDonationScreen(DonatedItem donation, int grade)
+        {
+            parent.ShowGradedDonation(donation, grade);
+
+            Close();
         }
     }
 }

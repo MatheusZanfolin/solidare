@@ -16,6 +16,13 @@ namespace Solidare.Feature.Donation.Operations
         private DateTime Date { get; }
         private Administrator Administrator { get; }
 
+        public DonationConfirmationParameters(Core.Architecture.Model.Donation donation, DateTime date, Administrator administrator)
+        {
+            Donation = donation;
+            Date = date;
+            Administrator = administrator;
+        }
+
         public Dictionary<string, object> List => new Dictionary<string, object>
         {
             { "@id_doacao", Donation.ID },

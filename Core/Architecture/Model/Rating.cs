@@ -2,10 +2,18 @@
 {
     public class Rating
     {
-        public DonatedItem Donation { get; private set; }
+
+        public int DonatedItemID { get; private set; }
 
         public int Grade { get; private set; }
 
-        public Administrator Reviewer { get; private set; }
+        public int ReviewerID { get; private set; }
+
+        public Rating(int donationID, int grade, int reviewerID)
+        {
+            DonatedItemID = donationID;
+            Grade = grade;
+            ReviewerID = reviewerID;
+        }
     }
 }
