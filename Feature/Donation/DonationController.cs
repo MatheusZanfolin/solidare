@@ -19,6 +19,8 @@ namespace Solidare.Feature.Donation
 
         private List<Core.Architecture.Model.Rating> ratings = new List<Core.Architecture.Model.Rating>();
 
+        private List<Core.Architecture.Model.Item> items = new List<Core.Architecture.Model.Item>();
+
         public DonationController(DonationForm form, Administrator loggedUser, Core.Architecture.Model.Donation ratedDonation) : base(form)
         {
             donation = ratedDonation;
@@ -30,15 +32,17 @@ namespace Solidare.Feature.Donation
             donatedItems = Database.GetAll(new DonationItems(), new DonationItemsMapper(), new DonationItemsParameters(donation));
 
             ratings = Database.GetAll(new DonationRatings(), new DonationRatingsMapper(), new DonationRatingsParameters(donation));
+
+            items = Database.GetAll(new DonationItemsDetails(), new ItemDetailsMapper(), new DonationItemsDetailsParameters(donation));
             
-            view.ShowItems(donatedItems, ratings);
+            view.ShowItems(items, donatedItems, ratings);
         }
 
         internal void OnConfirmDonationButtonClicked()
         {
             Database.Update(new DonationConfirmation(), new DonationConfirmationParameters(donation, DateTime.Now, user));
 
-            view.ShowDonationsScreen(donation);
+            view.ShowUpdatedDonations();
         }
 
         internal void OnSelectedItemChanged(int selectedIndex)

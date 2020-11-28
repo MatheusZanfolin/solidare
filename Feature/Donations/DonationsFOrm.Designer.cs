@@ -71,6 +71,7 @@
             this.Controls.Add(this.BtnRateDonation);
             this.Controls.Add(this.BtnReturn);
             this.Controls.Add(this.LstPendingDonations);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DonationsForm";
             this.Text = "Solidare - Doações";
             this.ResumeLayout(false);

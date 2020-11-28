@@ -34,6 +34,11 @@ namespace Solidare.Feature.Donations
             controller.OnReturnButtonClicked();
         }
 
+        internal void ShowUpdatedDonations()
+        {
+            controller.OnScreenCreated();
+        }
+
         internal void ShowDonations(List<Core.Architecture.Model.Donation> donations)
         {
             LstPendingDonations.Items.Clear();
@@ -48,11 +53,6 @@ namespace Solidare.Feature.Donations
         internal void CloseScreen()
         {
             Close();
-        }
-
-        internal void ShowConfirmedDonation(Core.Architecture.Model.Donation confirmed)
-        {
-            throw new NotImplementedException();
         }
     }
 }

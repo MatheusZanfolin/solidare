@@ -13,6 +13,8 @@ namespace Solidare.Feature.Item
 
         private DonatedItem donation;
 
+        private Core.Architecture.Model.Item item;
+
         private int grade;
 
         public RatingController(RatingForm form, Administrator loggedUser, DonatedItem donatedItem) : base(form)
@@ -23,7 +25,7 @@ namespace Solidare.Feature.Item
 
         internal void OnScreenCreated()
         {
-            var item = Database.Get(new ItemDetails(), new ItemDetailsMapper(), new ItemDetailsParameters(donation));
+            item = Database.Get(new ItemDetails(), new ItemDetailsMapper(), new ItemDetailsParameters(donation));
 
             view.ShowItemDetails(item.Name, donation.Quantity.ToString());
         }
@@ -37,7 +39,7 @@ namespace Solidare.Feature.Item
         {
             Database.Update(new DonatedItemRating(), new DonatedItemRatingParameters(donation, grade, user));
 
-            view.ShowDonationScreen(donation, grade);
+            view.ShowUpdatedDonationScreen();
         }
     }
 }

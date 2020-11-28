@@ -13,7 +13,7 @@ namespace Solidare.Feature.Donation
 
         private DonationsForm parent;
 
-        public DonationForm(Donations.DonationsForm donations, Administrator loggedUser, Core.Architecture.Model.Donation donation)
+        public DonationForm(DonationsForm donations, Administrator loggedUser, Core.Architecture.Model.Donation donation)
         {
             InitializeComponent();
 
@@ -38,9 +38,29 @@ namespace Solidare.Feature.Donation
             controller.OnRateItemButtonClicked();
         }
 
-        internal void ShowItems(List<DonatedItem> donatedItems, List<Core.Architecture.Model.Rating> ratings)
+        internal void UpdateScreen()
         {
-            throw new NotImplementedException();
+            controller.OnScreenCreated();
+        }
+
+        internal void ShowItems(List<Core.Architecture.Model.Item> items, List<DonatedItem> donatedItems, List<Core.Architecture.Model.Rating> ratings)
+        {
+            LstItems.Items.Clear();
+
+            foreach (DonatedItem donation in donatedItems)
+            {
+                var donationRating = ratings.Find((item) => item.DonatedItemID == donation.ID);
+                var donatedItem = items.Find((item) => item.ID == donation.ItemID);
+
+                var grade = "Sem avalição";
+
+                if (donationRating == null)
+                {
+                    grade = donationRating.Grade.ToString();
+                }
+
+                LstItems.Items.Add(donatedItem.Name + " (" + grade + ")");
+            }
         }
 
         internal void ShowRatingScreen(Administrator loggedUser, DonatedItem donatedItem)
@@ -48,14 +68,9 @@ namespace Solidare.Feature.Donation
             ShowDialog(new RatingForm(this, loggedUser, donatedItem));
         }
 
-        internal void ShowGradedDonation(DonatedItem donation, int grade)
+        internal void ShowUpdatedDonations()
         {
-            
-        }
-
-        internal void ShowDonationsScreen(Core.Architecture.Model.Donation confirmed)
-        {
-            parent.ShowConfirmedDonation(confirmed);
+            parent.ShowUpdatedDonations();
         }
     }
 }

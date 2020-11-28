@@ -87,6 +87,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtLogin);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LoginForm";
             this.Text = "Solidare";
             this.ResumeLayout(false);

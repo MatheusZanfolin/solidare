@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="Feature\Donation\Operations\DonationConfirmation.cs" />
     <Compile Include="Feature\Donation\Operations\DonationItems.cs" />
+    <Compile Include="Feature\Donation\Operations\DonationItemsDetails.cs" />
     <Compile Include="Feature\Donation\Operations\DonationRatings.cs" />
     <Compile Include="Feature\Donation\Operations\ItemCategoryDetails.cs" />
     <Compile Include="Feature\Donation\Operations\UnitDetails.cs" />

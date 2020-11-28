@@ -71,6 +71,7 @@
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnDonations);
             this.Controls.Add(this.BtnProfile);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuForm";
             this.Text = "Solidare - Menu Principal";
             this.ResumeLayout(false);

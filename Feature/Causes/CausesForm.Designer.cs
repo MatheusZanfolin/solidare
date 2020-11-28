@@ -127,6 +127,7 @@
             this.Controls.Add(this.BtnAddCause);
             this.Controls.Add(this.LstOrganizationCauses);
             this.Controls.Add(this.LstAvailableCauses);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CausesForm";
             this.Text = "Solidare - Causas defendidas";
             this.ResumeLayout(false);

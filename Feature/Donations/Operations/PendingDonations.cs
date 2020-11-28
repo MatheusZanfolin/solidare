@@ -12,16 +12,16 @@ namespace Solidare.Feature.Donations.Operations
 
     class PendingDonationsParameters : Parameters
     {
-        private Organization Organization { get; }
+        private Administrator Administrator { get; }
 
-        public PendingDonationsParameters(Organization organization)
+        public PendingDonationsParameters(Administrator administrator)
         {
-            Organization = organization;
+            Administrator = administrator;
         }
 
         public Dictionary<string, object> List => new Dictionary<string, object>
         {
-            { "@id_ong", Organization.ID }
+            { "@id_ong", Administrator.OrganizationID }
         };
     }
 

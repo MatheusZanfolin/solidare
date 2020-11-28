@@ -44,9 +44,9 @@ namespace Solidare.Feature.Item
             }
         }
 
-        internal void ShowDonationScreen(DonatedItem donation, int grade)
+        internal void ShowUpdatedDonationScreen()
         {
-            parent.ShowGradedDonation(donation, grade);
+            parent.UpdateScreen();
 
             Close();
         }
