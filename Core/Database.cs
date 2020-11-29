@@ -7,14 +7,12 @@ namespace Solidare.Core
 {
     public class Database
     {
-        private static readonly SqlConnection connection = new SqlConnection(SolidareCore.Properties.Resources.ConnectionString);
-
         public static D Get<D>(Operation get, Mapper<D> mapper, Parameters parameters = null)
         {
             D result = default(D);
 
-            PerformAtDatabase(() => {
-                var command = GetCommand(get, parameters);
+            PerformAtDatabase((connection) => {
+                var command = GetCommand(get, connection, parameters);
                 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -32,8 +30,8 @@ namespace Solidare.Core
         {
             List<D> result = new List<D>();
 
-            PerformAtDatabase(() => {
-                var command = GetCommand(get, parameters);
+            PerformAtDatabase((connection) => {
+                var command = GetCommand(get, connection, parameters);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -49,19 +47,21 @@ namespace Solidare.Core
 
         public static void Update(Operation update, Parameters parameters)
         {
-            PerformAtDatabase(() => { GetCommand(update, parameters).ExecuteNonQuery(); });
+            PerformAtDatabase((connection) => { GetCommand(update, connection, parameters).ExecuteNonQuery(); });
         }
 
-        private static void PerformAtDatabase(Action action)
+        private static void PerformAtDatabase(Action<SqlConnection> action)
         {
+            SqlConnection connection = new SqlConnection(SolidareCore.Properties.Resources.ConnectionString);
+
             connection.Open();
 
-            action();
+            action(connection);
 
             connection.Close();
         }
 
-        private static SqlCommand GetCommand(Operation operation, Parameters parameters = null)
+        private static SqlCommand GetCommand(Operation operation, SqlConnection connection, Parameters parameters = null)
         {
             var command = new SqlCommand(operation.Query, connection);
 

@@ -194,7 +194,7 @@
     <Folder Include="Feature\Results\Operations\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SolidareCore\SolidareCore.csproj">
+    <ProjectReference Include="..\Core\SolidareCore.csproj">
       <Project>{f0184586-9350-4b00-8a3d-548a53afa773}</Project>
       <Name>SolidareCore</Name>
     </ProjectReference>
