@@ -37,6 +37,7 @@ namespace Solidare.Feature.Donations.Operations
                 (string) reader["telefone"],
                 (string) reader["celular"],
                 (string) reader["username"],
+                (string)reader["senha"],
                 (int) reader["id_cidade"]
             );
         }

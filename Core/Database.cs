@@ -7,7 +7,7 @@ namespace Solidare.Core
 {
     public class Database
     {
-        private static readonly SqlConnection connection = new SqlConnection(Properties.Resources.ConnectionString);
+        private static readonly SqlConnection connection = new SqlConnection(SolidareCore.Properties.Resources.ConnectionString);
 
         public static D Get<D>(Operation get, Mapper<D> mapper, Parameters parameters = null)
         {

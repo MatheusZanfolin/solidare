@@ -46,21 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Architecture\Controller.cs" />
-    <Compile Include="Core\Architecture\Model\Administrator.cs" />
-    <Compile Include="Core\Architecture\Model\Cause.cs" />
-    <Compile Include="Core\Architecture\Model\Confirmation.cs" />
-    <Compile Include="Core\Architecture\Model\DonatedItem.cs" />
-    <Compile Include="Core\Architecture\Model\Donation.cs" />
-    <Compile Include="Core\Architecture\Model\Donor.cs" />
-    <Compile Include="Core\Architecture\Model\Item.cs" />
-    <Compile Include="Core\Architecture\Model\ItemCategory.cs" />
-    <Compile Include="Core\Architecture\Model\ItemUnit.cs" />
-    <Compile Include="Core\Architecture\Model\Organization.cs" />
-    <Compile Include="Core\Architecture\Model\City.cs" />
-    <Compile Include="Core\Architecture\Model\Rating.cs" />
-    <Compile Include="Core\Architecture\Model\State.cs" />
-    <Compile Include="Core\Database.cs" />
     <Compile Include="Feature\Causes\CausesController.cs" />
     <Compile Include="Feature\Causes\CausesForm.cs">
       <SubType>Form</SubType>
@@ -177,6 +162,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SolidareCore\SolidareCore.csproj">
+      <Project>{f0184586-9350-4b00-8a3d-548a53afa773}</Project>
+      <Name>SolidareCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
